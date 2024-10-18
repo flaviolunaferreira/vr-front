@@ -1,0 +1,63 @@
+.produto {
+  background-color: #FFFFFF;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 820px;
+  position: relative;
+
+  .detalhes {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    height: 730px;
+
+    .descricao {
+      display: flex;
+      flex-direction: row;
+      width: 100%;
+      height: 73%;
+      gap: 20px; // Adiciona espaçamento entre os elementos internos
+
+      .imagens {
+        width: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .informacoes {
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 10px; // Melhora o espaçamento interno das informações
+      }
+    }
+
+    .compartilhar {
+      width: 100%;
+      height: 27%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .produto {
+    height: auto;
+    .detalhes {
+      height: auto;
+      .descricao {
+        flex-direction: column;
+        .imagens, .informacoes {
+          width: 100%;
+        }
+      }
+    }
+  }
+}
