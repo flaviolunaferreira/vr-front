@@ -1,1 +1,23 @@
-<p>informacoes works!</p>
+<div class="produto-info">
+  <div class="titulo">
+    <h1>{{ produto.nome }}</h1>
+  </div>
+  <div class="preco">
+    <p>Preço: {{ produto.preco | currency:'BRL'}}</p>
+  </div>
+  <div class="avaliacao">
+    XXXXXXXX
+  </div>
+  <p>Descrição: {{ produto.descricao }}</p>
+
+  <h3 class="titulo">Tamanho</h3>
+  <div class="tamanhos-disponiveis">
+    <span *ngFor="let tamanho of produto.tamanhos" class="bolinha">{{ tamanho }}</span>
+  </div>
+
+  <h3 class="titulo">Cor</h3>
+  <div class="cores-disponiveis">
+    <span *ngFor="let cor of produto.cores" [style.background]="cor" class="cor-quadrado"></span>
+  </div>
+
+</div>
