@@ -1,1 +1,15 @@
-<p>imagens works!</p>
+<div class="galeria-container">
+  <!-- Lista de miniaturas à esquerda -->
+  <div class="miniaturas">
+    <img *ngFor="let imagem of imagens"
+         [src]="imagem"
+         (click)="selecionarImagem(imagem)"
+         [class.active]="imagemSelecionada === imagem"
+         alt="Miniatura"/>
+  </div>
+
+  <!-- Quadro maior à direita -->
+  <div class="imagem-selecionada">
+    <img [src]="imagemSelecionada" alt="Imagem Selecionada"/>
+  </div>
+</div>

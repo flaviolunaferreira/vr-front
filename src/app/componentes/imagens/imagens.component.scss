@@ -1,0 +1,48 @@
+.galeria-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 100%;
+
+  .miniaturas {
+    display: flex;
+    flex-direction: column;
+    width: 20%;
+    max-height: 500px;
+    overflow-y: auto;
+
+    img {
+      border-radius: 10px;
+      width: 76pxpx;
+      height: 80px;
+      margin-bottom: 10px;
+      cursor: pointer;
+      opacity: 0.6;
+      transition: opacity 0.3s ease;
+      gap: 2rem;
+
+      &.active {
+        opacity: 1;
+        border: 2px solid green;
+      }
+
+      &:hover {
+        opacity: 1;
+      }
+    }
+  }
+
+  .imagem-selecionada {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60%;
+    background-color: red;
+
+    img {
+      width: 481px;  /* Define a largura padronizada */
+      height: 500px;  /* Define a altura padronizada */
+      object-fit: cover!important; /* Faz com que a imagem preencha a área sem distorcer */
+    }
+  }
+}
