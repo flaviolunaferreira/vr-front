@@ -1,1 +1,10 @@
-<p>navegacao works!</p>
+<div class="breadcrumb">
+  <ng-container *ngFor="let crumb of breadcrumbs; let last = last">
+    <span *ngIf="!last">
+      {{ crumb }} &gt;
+    </span>
+    <span *ngIf="last">
+      {{ crumb }}
+    </span>
+  </ng-container>
+</div>
