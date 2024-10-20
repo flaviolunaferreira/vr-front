@@ -1,1 +1,6 @@
-<p>compartilhar works!</p>
+<div class="compartilhar">
+  <p>SKU          : {{produto.SKU}}</p>
+  <p>Catergoria   : {{produto.Categoria}}</p>
+  <p>Tags         : {{produto.Tags}}</p>
+  <p>Compartilhar : <img *ngFor="let icones of produto.Compartilhar"  [src]="icones"/></p>
+</div>
