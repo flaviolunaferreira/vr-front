@@ -1,0 +1,33 @@
+<div class="content">
+  <div class="titulo">
+    <h1>Produtos relacionados</h1>
+  </div>
+  <div class="cards-container">
+    <div class="card" *ngFor="let product of products">
+      <!-- Label de desconto ou novo -->
+      <div class="discount-label" *ngIf="product.discount > 0 || product.newProduct"
+           [ngClass]="{'discount': product.discount > 0, 'new': product.newProduct}">
+        <!-- Mostra o desconto se existir -->
+        <span *ngIf="product.discount > 0">-{{ product.discount }}%</span>
+        <!-- Mostra 'Novo' se o produto for novo -->
+        <span *ngIf="product.newProduct">Novo</span>
+      </div>
+
+      <!-- Imagem do produto -->
+      <img [src]="product.image" alt="Imagem do Produto">
+
+      <!-- Conteúdo do card -->
+      <div class="card-content">
+        <h3 class="brand">{{ product.brand }}</h3>
+        <p class="description">{{ product.description }}</p>
+        <p class="price">
+          <span>{{ product.price | currency:'BRL' }}</span>
+          <span *ngIf="product.discount > 0">
+            <s id="sublinhar">{{ getOriginalPrice(product.price, product.discount) | currency:'BRL' }}</s>
+          </span>
+        </p>
+      </div>
+    </div>
+  </div>
+  <button class="carregar-mais">Carregar mais...</button>
+</div>
