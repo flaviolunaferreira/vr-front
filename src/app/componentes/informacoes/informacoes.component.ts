@@ -1,10 +1,11 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
+import { CarrinhoComponent } from '../carrinho/carrinho.component';
 
 @Component({
   selector: 'app-informacoes',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, CarrinhoComponent],
   templateUrl: './informacoes.component.html',
   styleUrl: './informacoes.component.scss'
 })
@@ -18,5 +19,31 @@ export class InformacoesComponent {
     tamanhos: ['P', 'M', 'G']
   };
 
+  quantidade = 1;
+  itensCarrinho: any[] = [];
+
+  aumentarQuantidade() {
+    this.quantidade++;
+  }
+
+  diminuirQuantidade() {
+    if (this.quantidade > 1) {
+      this.quantidade--;
+    }
+  }
+
+  adicionarAoCarrinho() {
+    const itemCarrinho = {
+      nome: this.produto.nome,
+      preco: this.produto.preco,
+      quantidade: this.quantidade
+    };
+
+    this.itensCarrinho.push(itemCarrinho);
+  }
+
+  atualizarTotalCarrinho(total: number) {
+    console.log('Total do carrinho atualizado:', total);
+  }
 
 }

@@ -73,4 +73,38 @@
     }
   }
 
+  .sacola {
+    display: flex;
+    gap: 10px;
+    .quantidade {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      width: 123px;
+      height: 64px;
+      border: 1px solid #9F9F9F;
+      border-radius: 10px;
+      button {
+        background-color: #FFFFFF;
+        color: #000;
+        border: none;
+        padding: 5px;
+        cursor: pointer;
+      }
+      span {
+        margin: 0 10px;
+        font-size: 18px;
+      }
+    }
+    button {
+      width: 210px;
+      height: 64px;
+      border-radius: 10px;
+      background-color: #FFFFFF;
+      color: #000000;
+      padding: 10px;
+      border: 1px solid #000000;
+      cursor: pointer;
+    }
+  }
 }
