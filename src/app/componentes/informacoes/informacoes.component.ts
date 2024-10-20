@@ -33,13 +33,14 @@ export class InformacoesComponent {
   }
 
   adicionarAoCarrinho() {
-    const itemCarrinho = {
+    const carItems = {
+      Image: this.
       nome: this.produto.nome,
       preco: this.produto.preco,
       quantidade: this.quantidade
     };
 
-    this.itensCarrinho.push(itemCarrinho);
+    this.itensCarrinho.push(carItems);
   }
 
   atualizarTotalCarrinho(total: number) {

@@ -12,7 +12,27 @@
     <img [src]="usuario" alt="Usuario">
     <img [src]="pesquisar" alt="Pesquisar">
     <img [src]="coracao" alt="Coração">
-    <img [src]="carrinho" alt="Carrinho de compras">
+    <img [src]="carrinho" alt="Carrinho de compras" (click)="toggleCart()">
   </div>
+</div>
 
+<!-- Pop-down do carrinho -->
+<div *ngIf="isCartOpen" class="cart-popdown">
+  <div class="cart-items">
+    <h3>Itens do Carrinho</h3>
+    <div *ngFor="let item of cartItems" class="cart-item">
+      <img [src]="item.image" alt="{{item.name}}" />
+      <div class="cart-item-info">
+        <h4>{{ item.name }}</h4>
+        <p>Quantidade: {{ item.quantity }}</p>
+        <p>Preço: {{ item.price | currency:'BRL' }}</p>
+      </div>
+    </div>
+  </div>
+  <div class="cart-summary">
+    <p>Subtotal: {{ subtotal | currency:'BRL' }}</p>
+    <button>Sacola</button>
+    <button>Pagar</button>
+    <button>Comparar</button>
+  </div>
 </div>
