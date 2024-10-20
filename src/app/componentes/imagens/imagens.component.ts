@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Produto } from '../../Produto';
 
 @Component({
   selector: 'app-imagens',
@@ -10,14 +11,16 @@ import { Component } from '@angular/core';
 })
 export class ImagensComponent {
 
-  imagens: string[] = [
-    'assets/moveis/img1.jpg',
-    'assets/moveis/img2.jpg',
-    'assets/moveis/img3.jpg',
-    'assets/moveis/img4.jpg'
-  ];
+  @Input() produtos: Produto[] = []
+  imagemSelecionada: string = '';
 
-  imagemSelecionada: string = this.imagens[0];
+  ngOnInit() {
+
+    if (this.produtos.length > 0 && this.produtos[0].imagem.length > 0) {
+      this.imagemSelecionada = this.produtos[0].imagem[0]; // Selecionando a primeira imagem do primeiro produto
+    }
+  }
+
 
   selecionarImagem(imagem: string) {
     this.imagemSelecionada = imagem;

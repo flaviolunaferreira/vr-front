@@ -3,27 +3,27 @@
     <h1>Produtos relacionados</h1>
   </div>
   <div class="cards-container">
-    <div class="card" *ngFor="let product of products">
+    <div class="card" *ngFor="let product of produtos[0].outrosRelacionados">
       <!-- Label de desconto ou novo -->
-      <div class="discount-label" *ngIf="product.discount > 0 || product.newProduct"
-           [ngClass]="{'discount': product.discount > 0, 'new': product.newProduct}">
+      <div class="desconto-label" *ngIf="product.desconto > 0 || product.produtoNovo"
+           [ngClass]="{'discount': product.desconto > 0, 'new': product.produtoNovo}">
         <!-- Mostra o desconto se existir -->
-        <span *ngIf="product.discount > 0">-{{ product.discount }}%</span>
+        <span *ngIf="product.desconto > 0">-{{ product.desconto }}%</span>
         <!-- Mostra 'Novo' se o produto for novo -->
-        <span *ngIf="product.newProduct">Novo</span>
+        <span *ngIf="product.produtoNovo">Novo</span>
       </div>
 
       <!-- Imagem do produto -->
-      <img [src]="product.image" alt="Imagem do Produto">
+      <img [src]="product.imagem" alt="Imagem do Produto">
 
       <!-- Conteúdo do card -->
       <div class="card-content">
-        <h3 class="brand">{{ product.brand }}</h3>
-        <p class="description">{{ product.description }}</p>
+        <h3 class="brand">{{ product.tipo }}</h3>
+        <p class="description">{{ product.descricao }}</p>
         <p class="price">
-          <span>{{ product.price | currency:'BRL' }}</span>
-          <span *ngIf="product.discount > 0">
-            <s id="sublinhar">{{ getOriginalPrice(product.price, product.discount) | currency:'BRL' }}</s>
+          <span>{{ product.preco | currency:'BRL' }}</span>
+          <span *ngIf="product.desconto > 0">
+            <s id="sublinhar">{{ getOriginalPrice(product.preco, product.desconto) | currency:'BRL' }}</s>
           </span>
         </p>
       </div>

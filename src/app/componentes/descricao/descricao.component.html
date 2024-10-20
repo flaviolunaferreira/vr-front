@@ -6,10 +6,9 @@
 
 <div class="content">
   <ng-container *ngIf="selectedTab === 'descricao'">
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ut mi sed nisl mollis consequat non nec eros. Aenean cursus, purus in blandit lacinia, erat mi rutrum nisi.</p>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ut mi sed nisl mollis consequat non nec eros. Aenean cursus, purus in blandit lacinia, erat mi rutrum nisi, at condimentum elit nisl a nunc. Aliquam erat volutpat. Sed id vehicula eros. Nulla facilisi. Donec efficitur, tortor a sollicitudin elementum, ipsum metus feugiat massa, non lobortis ipsum tellus at elit. Quisque nec efficitur dui. Morbi auctor, sem et cursus interdum, est eros tincidunt nisi, id iaculis ligula eros a enim. Nunc id.</p>
+    <p>{{produtos[0].descricao}}</p>
     <div class="img-descricao">
-      <img *ngFor="let img of produtos" [src]="img" alt="imagem">
+      <img *ngFor="let img of produtos[0].imagemDescricao" [src]="img" alt="imagem">
     </div>
   </ng-container>
 

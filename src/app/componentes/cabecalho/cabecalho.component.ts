@@ -33,7 +33,7 @@ export class CabecalhoComponent implements OnInit {
   // Carregar itens do localStorage
   loadCartItems() {
     if (typeof window !== 'undefined' && window.localStorage) { // Verifica se está no navegador
-      const storedItems = localStorage.getItem('cart');
+      const storedItems = localStorage.getItem('cart'); // Ajuste para 'cart'
       if (storedItems) {
         this.cartItems = JSON.parse(storedItems);
         this.calculateSubtotal();
@@ -44,7 +44,7 @@ export class CabecalhoComponent implements OnInit {
   // Calcular o subtotal dos itens do carrinho
   calculateSubtotal() {
     this.subtotal = this.cartItems.reduce((total, item) => {
-      return total + item.price * item.quantity;
+      return total + item.preco * item.quantidade; // Ajuste para 'preco'
     }, 0);
   }
 }

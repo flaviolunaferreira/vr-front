@@ -2,12 +2,12 @@
 <div class="produto">
   <div class="detalhes">
     <div class="descricao">
-      <div class="imagens"><app-imagens></app-imagens></div>
-      <div class="informacoes"><app-informacoes></app-informacoes></div>
+      <div class="imagens"><app-imagens [produtos]="produtos"></app-imagens></div>
+      <div class="informacoes"><app-informacoes [produto]="produtos"></app-informacoes></div>
     </div>
     <div class="compartilhar"><app-compartilhar></app-compartilhar></div>
   </div>
   <hr class="custon-line">
-  <div class="descricao"><app-descricao></app-descricao></div>
-  <div class="relacionados"><app-relacionandos></app-relacionandos></div>
+  <div class="descricao"><app-descricao [produtos]="produtos"></app-descricao></div>
+  <div class="relacionados"><app-relacionandos [produtos]="produtos"></app-relacionandos></div>
 </div>

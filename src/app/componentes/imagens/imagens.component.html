@@ -1,7 +1,7 @@
 <div class="galeria-container">
   <!-- Lista de miniaturas à esquerda -->
   <div class="miniaturas">
-    <img *ngFor="let imagem of imagens"
+    <img *ngFor="let imagem of produtos[0].imagem"
          [src]="imagem"
          (click)="selecionarImagem(imagem)"
          [class.active]="imagemSelecionada === imagem"

@@ -17,22 +17,19 @@
 </div>
 
 <!-- Pop-down do carrinho -->
-<div *ngIf="isCartOpen" class="cart-popdown">
-  <div class="cart-items">
+<div class="cabecalho">
+  <div class="logo">{{ empresa }}</div>
+  <img [src]="carrinho" (click)="toggleCart()" alt="Carrinho" />
+
+  <div *ngIf="isCartOpen" class="cart-dropdown">
     <h3>Itens do Carrinho</h3>
-    <div *ngFor="let item of cartItems" class="cart-item">
-      <img [src]="item.image" alt="{{item.name}}" />
-      <div class="cart-item-info">
-        <h4>{{ item.name }}</h4>
-        <p>Quantidade: {{ item.quantity }}</p>
-        <p>Preço: {{ item.price | currency:'BRL' }}</p>
-      </div>
+    <div *ngFor="let item of cartItems">
+      <img [src]="item.imagem" alt="{{ item.nome }}" />
+      <p>{{ item.nome }}</p>
+      <p>Preço: R$ {{ item.preco }}</p>
+      <p>Quantidade: {{ item.quantidade }}</p>
     </div>
-  </div>
-  <div class="cart-summary">
-    <p>Subtotal: {{ subtotal | currency:'BRL' }}</p>
-    <button>Sacola</button>
-    <button>Pagar</button>
-    <button>Comparar</button>
+    <p><strong>Subtotal: R$ {{ subtotal }}</strong></p>
+    <button (click)="toggleCart()">Fechar</button>
   </div>
 </div>

@@ -1,8 +1,14 @@
 export interface Produto {
-  image: string;
-  brand: string;
-  description: string;
-  price: number;
-  discount: number;
-  newProduct: boolean;
+  nome: string;
+  tipo: string;
+  descricao: string;
+  preco: number;
+  desconto: number;
+  produtoNovo: boolean;
+  imagem: string[];
+  imagemDescricao: string[];
+  outrosRelacionados: Produto[];
+  avaliacao: number;
+  cores: string[],
+  tamanhos: string[]
 }

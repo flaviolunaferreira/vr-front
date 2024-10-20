@@ -1,23 +1,23 @@
 <div class="produto-info">
   <div class="titulo">
-    <h1>{{ produto.nome }}</h1>
+    <h1>{{ produto[0].nome }}</h1>
   </div>
   <div class="preco">
-    <p>Preço: {{ produto.preco | currency:'BRL'}}</p>
+    <p>Preço: {{ produto[0].preco | currency:'BRL'}}</p>
   </div>
   <div class="avaliacao">
     XXXXXXXX
   </div>
-  <p>Descrição: {{ produto.descricao }}</p>
+  <p>Descrição: {{ produto[0].descricao }}</p>
 
   <h3 class="titulo">Tamanho</h3>
   <div class="tamanhos-disponiveis">
-    <span *ngFor="let tamanho of produto.tamanhos" class="bolinha">{{ tamanho }}</span>
+    <span *ngFor="let tamanho of produto[0].tamanhos" class="bolinha">{{ tamanho }}</span>
   </div>
 
   <h3 class="titulo">Cor</h3>
   <div class="cores-disponiveis">
-    <span *ngFor="let cor of produto.cores" [style.background]="cor" class="cor-quadrado"></span>
+    <span *ngFor="let cor of produto[0].cores" [style.background]="cor" class="cor-quadrado"></span>
   </div>
 
  <div class="sacola">

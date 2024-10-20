@@ -1,23 +1,18 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { CarrinhoComponent } from '../carrinho/carrinho.component';
+import { Produto } from '../../Produto';
 
 @Component({
   selector: 'app-informacoes',
   standalone: true,
   imports: [CommonModule, CarrinhoComponent],
   templateUrl: './informacoes.component.html',
-  styleUrl: './informacoes.component.scss'
+  styleUrls: ['./informacoes.component.scss'] // Corrigido de 'styleUrl' para 'styleUrls'
 })
 export class InformacoesComponent {
 
-  produto = {
-    nome: 'Sofá de Madeira',
-    preco: '3000',
-    descricao: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ut mi sed nisl mollis consequat non nec eros. Aenean cursus, purus in blandit lacinia, erat mi rutrum nisi, at condimentum elit nisl a nunc',
-    cores: ['#FF0000', '#0000FF', '#008000', '#000000'],
-    tamanhos: ['P', 'M', 'G']
-  };
+  @Input() produto!: Produto[]; // Atualizando para um único produto
 
   quantidade = 1;
   itensCarrinho: any[] = [];
@@ -33,14 +28,33 @@ export class InformacoesComponent {
   }
 
   adicionarAoCarrinho() {
-    const carItems = {
-      Image: this.
-      nome: this.produto.nome,
-      preco: this.produto.preco,
+    const cartItem = {
+      imagem: this.produto[0].imagem[0], // Acessando a imagem diretamente
+      nome: this.produto[0].nome,
+      preco: this.produto[0].preco,
       quantidade: this.quantidade
     };
 
-    this.itensCarrinho.push(carItems);
+    // Adicionar o item ao array local
+    this.itensCarrinho.push(cartItem);
+
+    // Salvar o item no localStorage
+    this.salvarNoLocalStorage();
+  }
+
+  salvarNoLocalStorage() {
+    // Carregar os itens existentes no localStorage
+    let storedItems = localStorage.getItem('cart');
+    let cart = storedItems ? JSON.parse(storedItems) : [];
+
+    // Adicionar os itens atuais
+    cart.push(...this.itensCarrinho);
+
+    // Salvar o carrinho atualizado no localStorage
+    localStorage.setItem('cart', JSON.stringify(cart));
+
+    // Limpar o array local, pois já foi salvo no localStorage
+    this.itensCarrinho = [];
   }
 
   atualizarTotalCarrinho(total: number) {

@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Produto } from '../../Produto';
 
 @Component({
   selector: 'app-descricao',
@@ -10,11 +11,7 @@ import { Component } from '@angular/core';
 })
 export class DescricaoComponent {
 
-  produtos: string[] = [
-    'assets/moveis/img-descricao.jpg',
-    'assets/moveis/img-descricao2.jpg'
-  ]
-
+  @Input() produtos: Produto[] = []
   selectedTab: string = 'descricao';
   reviewsCount: number = 5;  // Para o botão "Reviews[5]"
 
