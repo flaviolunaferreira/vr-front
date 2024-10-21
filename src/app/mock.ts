@@ -24,7 +24,7 @@ export const PRODUTOS_MOCK: Produto[] = [
         imagem: ['assets/moveis/img1.jpg'],
         imagemDescricao: [],
         outrosRelacionados: [],
-        avaliacao: 5,
+        avaliacao: 2,
         cores: [],
         tamanhos: []
       },
@@ -52,7 +52,7 @@ export const PRODUTOS_MOCK: Produto[] = [
         imagem: ['assets/moveis/img3.jpg'],
         imagemDescricao: [],
         outrosRelacionados: [],
-        avaliacao: 5,
+        avaliacao: 3,
         cores: [],
         tamanhos: []
       },
@@ -66,12 +66,12 @@ export const PRODUTOS_MOCK: Produto[] = [
         imagem: ['assets/moveis/img4.jpg'],
         imagemDescricao: [],
         outrosRelacionados: [],
-        avaliacao: 5,
+        avaliacao: 4,
         cores: [],
         tamanhos: []
       }
     ],
-    avaliacao: 4.5,
+    avaliacao: 9,
     cores: ['#FF0000', '#0000FF', '#008000', '#000000'],
     tamanhos: ['P', 'M', 'G']
   }

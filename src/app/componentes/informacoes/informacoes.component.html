@@ -6,7 +6,7 @@
     <p>Preço: {{ produto[0].preco | currency:'BRL'}}</p>
   </div>
   <div class="avaliacao">
-    XXXXXXXX
+    <app-estrelas [avaliacao]="produto[0].avaliacao"></app-estrelas>
   </div>
   <p>Descrição: {{ produto[0].descricao }}</p>
 

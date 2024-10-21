@@ -3,17 +3,18 @@ import { Component, Input } from '@angular/core';
 import { CarrinhoComponent } from '../carrinho/carrinho.component';
 import { Produto } from '../../Produto';
 import { CarrinhoService } from '../../service/CarrinhoService';
+import { EstrelasComponent } from "../estrelas/estrelas.component";
 
 @Component({
   selector: 'app-informacoes',
   standalone: true,
-  imports: [CommonModule, CarrinhoComponent],
+  imports: [CommonModule, CarrinhoComponent, EstrelasComponent],
   templateUrl: './informacoes.component.html',
   styleUrls: ['./informacoes.component.scss'] // Corrigido de 'styleUrl' para 'styleUrls'
 })
 export class InformacoesComponent {
 
-  @Input() produto!: Produto[]; // Atualizando para um único produto
+  @Input() produto!: Produto[]; 
 
   quantidade = 1;
 
