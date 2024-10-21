@@ -65,7 +65,7 @@
     }
   }
 
-  .discount-label {
+  .desconto-label {
     position: absolute;
     top: 1rem;
     right: 1rem;
@@ -78,11 +78,11 @@
     border-radius: 50%;
     color: white;
 
-    &.discount {
+    &.desconto {
       background-color: red;
     }
 
-    &.new {
+    &.novo {
       background-color: green;
     }
   }

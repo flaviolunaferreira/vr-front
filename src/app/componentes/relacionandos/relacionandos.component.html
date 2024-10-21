@@ -6,7 +6,7 @@
     <div class="card" *ngFor="let product of produtos[0].outrosRelacionados">
       <!-- Label de desconto ou novo -->
       <div class="desconto-label" *ngIf="product.desconto > 0 || product.produtoNovo"
-           [ngClass]="{'discount': product.desconto > 0, 'new': product.produtoNovo}">
+           [ngClass]="{'desconto': product.desconto > 0, 'novo': product.produtoNovo}">
         <!-- Mostra o desconto se existir -->
         <span *ngIf="product.desconto > 0">-{{ product.desconto }}%</span>
         <!-- Mostra 'Novo' se o produto for novo -->

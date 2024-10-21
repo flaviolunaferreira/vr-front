@@ -18,18 +18,36 @@
 
 <!-- Pop-down do carrinho -->
 <div class="cabecalho">
-  <div class="logo">{{ empresa }}</div>
-  <img [src]="carrinho" (click)="toggleCart()" alt="Carrinho" />
-
-  <div *ngIf="isCartOpen" class="cart-dropdown">
-    <h3>Itens do Carrinho</h3>
-    <div *ngFor="let item of cartItems">
-      <img [src]="item.imagem" alt="{{ item.nome }}" />
-      <p>{{ item.nome }}</p>
-      <p>Preço: R$ {{ item.preco }}</p>
-      <p>Quantidade: {{ item.quantidade }}</p>
+  <div class="cart-dropdown" *ngIf="isCartOpen">
+    <h3>Minha Sacola <p (click)="toggleCart()">X</p></h3>
+    <hr>
+    <div *ngFor="let item of cartItems; let i = index" class="detalhes">
+      <div class="imagem">
+        <img [src]="item.imagem" alt="{{ item.nome }}" />
+      </div>
+      <div class="descricao">
+        <p>{{ item.nome }}</p>
+        <div class="preco">
+          <p>{{ item.quantidade }}</p>
+          <p>X</p>
+          <p id="dourado">{{ item.preco | currency:'BRL' }}</p>
+        </div>
+      </div>
+      <div class="apagar">
+        <button (click)="apagarItem(i)">X</button> <!-- Botão para apagar -->
+      </div>
     </div>
-    <p><strong>Subtotal: R$ {{ subtotal }}</strong></p>
-    <button (click)="toggleCart()">Fechar</button>
+    <div class="resumo">
+      <div class="subtotal">
+        <p><strong>Subtotal</strong></p>
+        <p id="dourado"><strong> R$ {{ subtotal }}</strong></p>
+      </div>
+      <hr>
+      <div class="botoes">
+        <button>Sacola</button>
+        <button>Pagar</button>
+        <button>Comprar</button>
+      </div>
+    </div>
   </div>
 </div>

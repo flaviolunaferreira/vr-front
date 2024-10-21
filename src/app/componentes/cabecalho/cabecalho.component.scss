@@ -44,27 +44,91 @@
   }
 }
 
-.cart-dropdown {
-  position: fixed;
-  top: 150px; // ajuste conforme necessário
-  right: 20px; // ajuste conforme necessário
-  background-color: white;
-  border: 1px solid #ccc;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  z-index: 1;
-  padding: 15px;
-  width: 300px; // ajuste conforme necessário
+.cabecalho {
+  .cart-dropdown {
+    position: fixed;
+    top: 150px;
+    right: 20px;
+    background-color: white;
+    border: 1px solid #ccc;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+    padding: 15px;
+    width: 417px;
+    height: 746px;
+    h3 {
+      display: flex;
+      justify-content: space-between;
+      margin: 0 0 10px;
+      font-size: 24px;
+      line-height: 36px;
+      p {
+        font-size: 10px;
+        color: #9F9F9F;
+        cursor: pointer;
+      }
+    }
+    .detalhes {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem;
+      img {
+        border-radius: 10px;
+        width: 105px;
+        height: 105px;
+        object-fit: cover!important;
+      }
+      .descricao {
+        display: flex;
+        flex-direction: column;
+        width: 134px;
+        line-height: 24px;
+        p {
+          font-size: 18px;
+          color: #000000;
+        }
+        .preco {
+          display: flex;
+          justify-content: space-between;
+        }
+      }
+      .apagar {
+        button {
+          width: 20px;
+          height: 20px;
+          color: #9F9F9F;
+          border-radius: 12px;
+          border: none;
+        }
+      }
+    }
+    .resumo {
+      width: 33%;
+      position: fixed;
+      bottom: 100px;
+      .subtotal {
+        display: flex;
+        justify-content: space-around;
+        gap: 10px;
+        font-size: 16px;
+        line-height: 24px;
+      }
+      .botoes {
+        display: flex;
+        justify-content: space-around;
+        margin-top: 2rem;
+        button {
+          width: 102px;
+          height: 30px;
+          border-radius: 50px;
+          border: 1 px solid black;
+        }
+      }
 
-  h3 {
-    margin: 0 0 10px;
+    }
   }
-
-  img {
-    width: 50px; // ajuste conforme necessário
-    height: auto;
-  }
-
-  button {
-    margin-top: 10px;
-  }
+}
+#dourado {
+  color: #B88E2F;
 }

@@ -1,12 +1,13 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { CarrinhoService } from '../../service/CarrinhoService';
 
 @Component({
   selector: 'app-cabecalho',
   standalone: true,
   imports: [CommonModule],
   templateUrl: './cabecalho.component.html',
-  styleUrls: ['./cabecalho.component.scss'] // Corrigido de 'styleUrl' para 'styleUrls'
+  styleUrls: ['./cabecalho.component.scss']
 })
 export class CabecalhoComponent implements OnInit {
   empresa = 'VR Shopping';
@@ -15,14 +16,18 @@ export class CabecalhoComponent implements OnInit {
   coracao = 'assets/coracao.png';
   carrinho = 'assets/carrinho-de-compras.png';
 
+  @Output() atualizarCarrinho = new EventEmitter<number>();
   isCartOpen = false; // Para controlar o pop-down do carrinho
   cartItems: any[] = []; // Armazena os itens do carrinho
   subtotal: number = 0; // Subtotal dos produtos
 
-  constructor() {}
+  constructor(private carrinhoService: CarrinhoService) {}
 
   ngOnInit() {
-    this.loadCartItems(); // Carregar itens do localStorage quando o componente inicializa
+    this.carrinhoService.cartItems$.subscribe(items => {
+      this.cartItems = items;
+      this.calculateSubtotal();
+    });
   }
 
   // Função para abrir/fechar o carrinho
@@ -30,16 +35,6 @@ export class CabecalhoComponent implements OnInit {
     this.isCartOpen = !this.isCartOpen;
   }
 
-  // Carregar itens do localStorage
-  loadCartItems() {
-    if (typeof window !== 'undefined' && window.localStorage) { // Verifica se está no navegador
-      const storedItems = localStorage.getItem('cart'); // Ajuste para 'cart'
-      if (storedItems) {
-        this.cartItems = JSON.parse(storedItems);
-        this.calculateSubtotal();
-      }
-    }
-  }
 
   // Calcular o subtotal dos itens do carrinho
   calculateSubtotal() {
@@ -47,4 +42,10 @@ export class CabecalhoComponent implements OnInit {
       return total + item.preco * item.quantidade; // Ajuste para 'preco'
     }, 0);
   }
+
+  // Apagar um item específico
+  apagarItem(index: number) {
+    this.carrinhoService.apagarDoCarrinho(index); // Remove o item do carrinho
+  }
+
 }
